@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="FlightTickets.ConsumerAPI/FlightTickets.ConsumerAPI.csproj" />
+  <Project Path="FlightTickets.Models/FlightTickets.Models.csproj" />
+  <Project Path="FlightTickets.OrderAPI/FlightTickets.OrderAPI.csproj" />
+  <Project Path="FlightTickets.PaymentAPI/FlightTickets.PaymentAPI.csproj" />
+</Solution>
