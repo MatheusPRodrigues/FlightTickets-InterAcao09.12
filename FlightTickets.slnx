@@ -3,4 +3,5 @@
   <Project Path="FlightTickets.Models/FlightTickets.Models.csproj" />
   <Project Path="FlightTickets.OrderAPI/FlightTickets.OrderAPI.csproj" />
   <Project Path="FlightTickets.PaymentAPI/FlightTickets.PaymentAPI.csproj" />
+  <Project Path="FlightTickets.Tests/FlightTickets.Tests.csproj" Id="7cea35ae-32e6-4288-b148-505c86c49f01" />
 </Solution>
