@@ -37,10 +37,9 @@ namespace FlightTickets.Tests.Controllers.OrderControllerTests
 
             // Act
             var result = _ticketController.CreateTicketAsync(ticketRequest);
-            var objectResult = (OkObjectResult)result.Result; 
 
             // Assert                        
-            Assert.IsType<OkObjectResult>(result.Result);
+            var objectResult = Assert.IsType<OkObjectResult>(result.Result);
             Assert.IsType<TicketResponseDTO>(objectResult.Value);
         }
     }
