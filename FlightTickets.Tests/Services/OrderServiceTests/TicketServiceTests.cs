@@ -15,7 +15,7 @@ namespace FlightTickets.Tests.Services.OrderServiceTests
         }
 
         [Fact]
-        public void TicketServiceCreateTicketReturn()
+        public async Task TicketServiceCreateTicketReturn()
         {
             // Arrange
             var ticketRequest = new TicketRequestDTO
@@ -27,10 +27,10 @@ namespace FlightTickets.Tests.Services.OrderServiceTests
             };
 
             // Act
-            var result = _ticketService.CreateTicketAsync(ticketRequest);
+            var result = await _ticketService.CreateTicketAsync(ticketRequest);
 
             // Assert
-            Assert.IsType<TicketResponseDTO>(result.Result);
+            Assert.IsType<TicketResponseDTO>(result);
         }
     }
 }

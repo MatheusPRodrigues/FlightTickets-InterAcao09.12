@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FlightTickets.ConsumerAPI\FlightTickets.ConsumerAPI.csproj" />
     <ProjectReference Include="..\FlightTickets.Models\FlightTickets.Models.csproj" />
     <ProjectReference Include="..\FlightTickets.OrderAPI\FlightTickets.OrderAPI.csproj" />
     <ProjectReference Include="..\FlightTickets.PaymentAPI\FlightTickets.PaymentAPI.csproj" />

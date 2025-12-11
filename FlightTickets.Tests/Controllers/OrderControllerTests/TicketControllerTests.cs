@@ -24,7 +24,7 @@ namespace FlightTickets.Tests.Controllers.OrderControllerTests
         }
 
         [Fact]
-        public void TicketControllerCreateTicketReturn()
+        public async Task TicketControllerCreateTicketReturn()
         {
             // Arrange
             var ticketRequest = new TicketRequestDTO
@@ -36,10 +36,24 @@ namespace FlightTickets.Tests.Controllers.OrderControllerTests
             };
 
             // Act
-            var result = _ticketController.CreateTicketAsync(ticketRequest);
+            var result = await _ticketController.CreateTicketAsync(ticketRequest);
+
+            for (var i = 0; i < 10000; i++)
+            {
+                ticketRequest = new TicketRequestDTO
+                {
+                    PassengerName = _faker.Name.FullName(),
+                    FlightNumber = _faker.Random.AlphaNumeric(6).ToUpper(),
+                    SeatNumber = $"{_faker.Random.Int(1, 30)}{_faker.Random.Char('A', 'F')}",
+                    Price = _faker.Finance.Amount(600, 6000, 2)
+                };
+                var resultException = await Record.ExceptionAsync(() => _ticketController.CreateTicketAsync(ticketRequest));
+                
+                Assert.Null(resultException);
+            }
 
             // Assert                        
-            var objectResult = Assert.IsType<OkObjectResult>(result.Result);
+            var objectResult = Assert.IsType<OkObjectResult>(result);
             Assert.IsType<TicketResponseDTO>(objectResult.Value);
         }
     }
